@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Nav from "./components/Nav/Nav";
-import {Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Route, withRouter} from "react-router-dom";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import News from "./components/News/News";
@@ -14,6 +14,8 @@ import {connect} from 'react-redux'
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
+import store from "./redux/redux-store";
+import {Provider} from "react-redux";
 
 class App extends React.PureComponent {
 	componentDidMount() {
@@ -44,6 +46,18 @@ let mapStateToProps = (state) => {
 		initialized: state.appPage.initialized,
 	}
 };
-export default compose(
+let AppContainer = compose(
 	 withRouter,
 	 connect(mapStateToProps, {initializeApp}))(App);
+
+const MainApp = () => {
+	return(
+		 <BrowserRouter>
+			 <Provider store={store}>
+				 <AppContainer state={store.getState()}/>
+			 </Provider>
+		 </BrowserRouter>
+	);
+};
+
+export default MainApp;

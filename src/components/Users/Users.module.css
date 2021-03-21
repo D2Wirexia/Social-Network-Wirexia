@@ -32,20 +32,13 @@ img{
 .btn {
 	width: 100px;
 	height: 30px;
-
 	transition: .1s linear;
-
 	position: absolute;
 	bottom: 0;
 }
 .btn:hover{
-	box-shadow: .5px .5px #000;
 	cursor: pointer;
-	background: #5285ad;
 	border: 1px solid #5f85ae;
-}
-.btn:focus{
-	display: none;
 }
 .info{
 	float: left;

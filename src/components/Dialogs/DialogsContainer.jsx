@@ -1,5 +1,5 @@
 import React from 'react';
-import {addMessage} from "../../redux/messageReducer";
+import {addAnswerZe, addMessage} from "../../redux/messageReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../Hoc/withAuthRedirect";
@@ -9,11 +9,12 @@ let mapStateToProps = (state) => {
 	return {
 		messageData: state.messangerPage.messageData,
 		dialogData: state.messangerPage.dialogData,
+		ZeChat: state.messangerPage.ZeChat,
 
 	}
 };
 
 export default compose(
-	 connect(mapStateToProps, {addMessage}),
+	 connect(mapStateToProps, {addMessage, addAnswerZe}),
 	 withAuthRedirect
 )(Dialogs);

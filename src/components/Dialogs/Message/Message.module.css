@@ -3,14 +3,44 @@
 	border-radius: 12px;
 	border: 1px solid #cdcdcd;
 	margin: 10px;
-	width: 340px;
-
 	word-wrap: break-word;
 	max-width: 500px;
+	min-width: 50px;
+	background: #EFFDDE;
+	align-items: center;
 }
-
+.enterMessage{
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+	position: relative;
+}
+.simpleMess{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+.enterMessage img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	bottom: 10px;
+	position: absolute;
+}
 .blockMessage{
 	position: relative;
-
-
+	height: 100%;
+	width: 100%;
+}
+.backgroundImg{
+	position: fixed;
+	height: calc(100vh - 210px);
+	width: 680px;
+	z-index: -1;
+}
+.backgroundImg img{
+	height: 100%;
+	width: 100%;
+	position: absolute;
 }

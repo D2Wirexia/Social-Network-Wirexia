@@ -76,3 +76,4 @@ console.log(funcImitationCountLikes(1890317)); //1,9 М
 console.log(funcImitationCountLikes(1672)); //1,7 ТЫС
 console.log(funcImitationCountLikes(10562711)); //10,6 М
  */
+

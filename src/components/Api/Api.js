@@ -38,7 +38,7 @@ export const dalAPi = {
 		return instance.put(`profile/status`, {status})
 	},
 	//залогиниться на серваке через нашу страничку
-	postLoginAxios(email, password, rememberMe = false){
+	postLoginAxios(email, password, rememberMe  = false){
 		return instance.post('/auth/login', {email, password, rememberMe})
 	},
 	//разлогиниться на серваке через нашу страничку

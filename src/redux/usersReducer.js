@@ -8,7 +8,6 @@ const SET_CURRENT_PAGE = "userReducer/SET_CURRENT_PAGE";
 const SET_TOTAL_USERS_COUNT = "userReducer/SET_TOTAL_USERS_COUNT";
 const TOGGLE_IS_FETCHING = "userReducer/TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "userReducer/TOGGLE_IS_FOLLOWING_PROGRESS";
-
 let initialState = {
 	users: [],
 	usersBest: [
@@ -80,7 +79,7 @@ const usersReducer = (state = initialState, action) => {
 		case SET_USERS:
 			return {
 				...state,
-				users: [...action.users],
+				users: action.users,
 			};
 		case SET_CURRENT_PAGE:
 			return {
@@ -108,50 +107,38 @@ const usersReducer = (state = initialState, action) => {
 			return state;
 	}
 };
-export const followAC = (userID) => ({type: FOLLOW, userID});
-export const unfollowAC = (userID) => ({type: UNFOLLOW, userID});
+export const followSuccess = (userID) => ({type: FOLLOW, userID});
+export const unfollowSuccess = (userID) => ({type: UNFOLLOW, userID});
 export const setUsersAC = (users) => ({type: SET_USERS, users});
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 export const setTotalUsersCountAC = (totalUsersCount) => ({
 	type: SET_TOTAL_USERS_COUNT, totalCount: totalUsersCount
 });
 export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const toggleIsFollowingProgress = (progress, userId) => ({
-	type: TOGGLE_IS_FOLLOWING_PROGRESS,	progress, userId
+	type: TOGGLE_IS_FOLLOWING_PROGRESS, progress, userId
 });
-
 export const requestUsers = (currentPage, pageSize) => async (dispatch) => {
 	dispatch(toggleIsFetchingAC(true));
-	dispatch(setCurrentPageAC(currentPage));
+	dispatch(setCurrentPage(currentPage));
 	let data = await dalAPi.getUsersAxios(currentPage, pageSize);
 	dispatch(toggleIsFetchingAC(false));
 	dispatch(setUsersAC(data.items));
 	dispatch(setTotalUsersCountAC(data.totalCount));
 };
-const subscribeFlow = async (dispatch, id, apiMethod, actionCreator) => {
-	dispatch(toggleIsFollowingProgress(true, id));
-	let response = await apiMethod(id);
+const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
+	debugger
+	dispatch(toggleIsFollowingProgress(true, userId));
+	let response = await apiMethod(userId);
 	if (response.data.resultCode === 0) {
-		dispatch(actionCreator(id));
+		dispatch(actionCreator(userId));
 	}
-	dispatch(toggleIsFollowingProgress(false, id));
+	dispatch(toggleIsFollowingProgress(false, userId));
 };
-export const followThunk = (id) => async (dispatch) => {
-/*	dispatch(toggleIsFollowingProgress(true, id));
-	let response = await dalAPi.follow(id);
-	if (response.data.resultCode === 0) {
-		dispatch(followAC(id));
-	}
-	dispatch(toggleIsFollowingProgress(false, id));*/
-	subscribeFlow(dispatch, id, dalAPi.follow.bind(dalAPi), followAC);
+export const follow = (userId) => async (dispatch) => {
+		followUnfollowFlow(dispatch, userId, dalAPi.follow.bind(dalAPi), followSuccess);
 };
-export const unfollowThunk = (id) => async (dispatch) => {
-	/*dispatch(toggleIsFollowingProgress(true, id));
-	let response = await dalAPi.unfollow(id);
-	if (response.data.resultCode === 0) {
-		dispatch(unfollowAC(id));
-	}
-	dispatch(toggleIsFollowingProgress(false, id));*/
-	subscribeFlow(dispatch, id, dalAPi.unfollow.bind(dalAPi), unfollowAC);
+export const unfollow = (userId) => async (dispatch) => {
+		followUnfollowFlow(dispatch, userId, dalAPi.unfollow.bind(dalAPi), unfollowSuccess);
 };
 export default usersReducer;

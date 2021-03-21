@@ -5,9 +5,9 @@ import {NavLink} from 'react-router-dom';
 const OneDialog = (props) => {
 	return(
 		 <NavLink to={'/dialogs/' + props.id}>
-			 <div className={universal.dialog}>
+			 <div className={universal.dialog} onClick={()=>props.receiveIdFriend(props.id)}>
 				<div className={universal.imgFriend}>
-					<img src={props.photoUrl} />
+					<img src={props.photoUrl} alt="photoProfile"/>
 				</div>
 
 				<div className={universal.nameFriend}>{props.name}</div>
@@ -19,8 +19,8 @@ const OneDialog = (props) => {
 
 const Friends = (props) => {
 
-	let dialogElement = props.dialogData.map( dialog => {
-		return <OneDialog name={dialog.name} id={dialog.id} photoUrl={dialog.photoUrl}/>
+	let dialogElement = props.dialogData.map(dialog => {
+		return <OneDialog name={dialog.name} id={dialog.id} photoUrl={dialog.photoUrl} receiveIdFriend={props.receiveIdFriend}/>
 	});
 	return (
 		 <div className={universal.mainDialog}>

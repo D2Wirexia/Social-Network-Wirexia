@@ -1,13 +1,13 @@
 import React from "react";
 import universal from './Pagination.module.css'
 
-let Paginator = React.memo(
-	 ({totalUsersCount, pageSize, currentPage, onPageChanged}) => {
+let Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged}) => {
 	let pageCount = Math.ceil(totalUsersCount / pageSize);
 	let pages = [];
 	for (let i = 1; i <= pageCount; i++) {
 		pages.push(i);
 	}
+
 	return (
 		 <div className={universal.pagination}>
 			 {
@@ -17,5 +17,5 @@ let Paginator = React.memo(
 			 }
 		 </div>
 	)
-});
+};
 export default Paginator;
