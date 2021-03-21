@@ -9,10 +9,11 @@
 }
 
 .post a.active{
-	text-decoration: underline;
 	color: #f7ed93;
 	transform: scale(1.1);
-
+}
+.post a:hover{
+	color: #e4db88;
 }
 .nav div a{
 	text-decoration: none;
