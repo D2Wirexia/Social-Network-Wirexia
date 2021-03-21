@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/task-react/static/css/main.a6f36e5e.chunk.css",
+    "main.js": "/task-react/static/js/main.3a6c8f17.chunk.js",
+    "main.js.map": "/task-react/static/js/main.3a6c8f17.chunk.js.map",
+    "runtime-main.js": "/task-react/static/js/runtime-main.c5247d63.js",
+    "runtime-main.js.map": "/task-react/static/js/runtime-main.c5247d63.js.map",
+    "static/js/2.82f4acc0.chunk.js": "/task-react/static/js/2.82f4acc0.chunk.js",
+    "static/js/2.82f4acc0.chunk.js.map": "/task-react/static/js/2.82f4acc0.chunk.js.map",
+    "index.html": "/task-react/index.html",
+    "precache-manifest.e5ded512421afa104d228b9eaaa3b64f.js": "/task-react/precache-manifest.e5ded512421afa104d228b9eaaa3b64f.js",
+    "service-worker.js": "/task-react/service-worker.js",
+    "static/css/main.a6f36e5e.chunk.css.map": "/task-react/static/css/main.a6f36e5e.chunk.css.map",
+    "static/js/2.82f4acc0.chunk.js.LICENSE.txt": "/task-react/static/js/2.82f4acc0.chunk.js.LICENSE.txt",
+    "static/media/1.jpg": "/task-react/static/media/1.36578126.jpg",
+    "static/media/dimuch.png": "/task-react/static/media/dimuch.74336e19.png",
+    "static/media/all.min.css": "/task-react/static/media/fa-solid-900.ee09ad75.woff",
+    "static/media/loading.gif": "/task-react/static/media/loading.3f259006.gif",
+    "static/media/logo.svg": "/task-react/static/media/logo.5d5d9eef.svg",
+    "static/media/myAva.jpg": "/task-react/static/media/myAva.df94f537.jpg",
+    "static/media/snw.png": "/task-react/static/media/snw.2f7acb55.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c5247d63.js",
+    "static/js/2.82f4acc0.chunk.js",
+    "static/css/main.a6f36e5e.chunk.css",
+    "static/js/main.3a6c8f17.chunk.js"
+  ]
+}
