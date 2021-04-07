@@ -4,17 +4,19 @@ import myAva from './../../../img/myAva.jpg'
 
 const Message = (props) => {
 	const meMessage = {
-		"justify-content": "flex-end",
-		"text-align": "right"
+		"justifyContent": "flex-end",
+		"textAlign": "right",
+		"marginRight": "10px"
 	};
 	const meMessageDiv = {
-		"margin-right": "60px"
+		"marginRight": "60px"
 	};
 	const otherMessage = {
-		"justify-content": "flex-start"
+		"justifyContent": "flex-start",
+		"marginLeft": "10px"
 	};
-	const therMessageDiv = {
-		"margin-left": "60px"
+	const theirMessageDiv = {
+		"marginLeft": "60px"
 	};
 	return (
 		 <div className={universal.blockMessage}>
@@ -28,7 +30,7 @@ const Message = (props) => {
 						 mes.sender !== "me"
 							  ? <div className={universal.enterMessage} style={otherMessage}>
 								  <img src={props.dialogData[props.idFriend - 1].photoUrl} alt="photoFriend"/>
-								  <div className={universal.discussion} style={therMessageDiv}>{mes.message}</div>
+								  <div className={universal.discussion} style={theirMessageDiv}>{mes.message}</div>
 							  </div>
 							  : <div className={universal.enterMessage} style={meMessage}>
 								  <div className={universal.discussion} style={meMessageDiv}>{mes.message}</div>

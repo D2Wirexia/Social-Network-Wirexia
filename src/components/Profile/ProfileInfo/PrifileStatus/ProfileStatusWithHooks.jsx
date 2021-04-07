@@ -22,10 +22,11 @@ const ProfileStatusWithHooks = React.memo(props => {
 		 <>
 			 {!editMode &&
 			 <div>
-				 <span onDoubleClick={activateEditMode}>{props.status || 'Edit status'}</span>
+				 <span onDoubleClick={props.isOwner ? activateEditMode : null}>{props.status || 'Edit' +
+				 ' status'}</span>
 			 </div>
 			 }
-			 {editMode &&
+			 {editMode && props.isOwner &&
 			 <div>
 				 <input onBlur={deactivateEditMode}
 						  autoFocus={true}

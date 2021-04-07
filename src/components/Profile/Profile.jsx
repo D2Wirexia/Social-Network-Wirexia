@@ -7,7 +7,7 @@ const Profile = React.memo(props => {
 
 	return(
 		 <div className={universal.content}>
-			 <ProfileInfo profile={props.profile} mainProfile={props.mainProfile}
+			 <ProfileInfo profile={props.profile} isOwner={props.isOwner} savePhoto={props.savePhoto}
 							  status={props.status} statusUpdateThunk={props.statusUpdateThunk}/>
 			 <MyPostContainer />
 		 </div>

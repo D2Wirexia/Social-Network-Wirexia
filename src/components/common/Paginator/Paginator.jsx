@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react";
 import universal from './Pagination.module.css'
 import './../../../css/all.min.css'
 
-let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
+let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged}) => {
+	const portionSize = 10;
 	let pageCount = Math.ceil(totalItemsCount / pageSize);
 	let pages = [];
 	for (let i = 1; i <= pageCount; i++) {

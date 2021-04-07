@@ -52,9 +52,8 @@ const Dialogs = (props) => {
 	};
 	return (
 		 <div>
-			 <h3>Dialogs</h3>
 			 <div className={universal.mainDialog}>
-				 <Friends dialogData={props.dialogData} receiveIdFriend={receiveIdFriend}/>
+				 <Friends dialogData={props.dialogData} receiveIdFriend={receiveIdFriend} idFriend={idFriend}/>
 				 <div className={universal.mes}>
 					 <div className={universal.sms}>
 						 <Message message={props.messageData} whomToSend={whomToSend}

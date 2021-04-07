@@ -45,4 +45,18 @@ export const dalAPi = {
 	deleteLoginAxios(){
 		return instance.delete('/auth/login')
 	},
+	//Загрузка новой авки
+	putDownloadPhoto(photo){
+		const formData = new FormData();
+		formData.append("image", photo);
+		return instance.put('profile/photo', formData, {
+			headers: {
+				'Content-Type': 'multipart/form-data'
+			}
+		});
+	},
+	//
+	putUpdateProfile(profile){
+		return instance.put('profile', profile)
+	}
 };

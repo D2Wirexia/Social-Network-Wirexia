@@ -1,13 +1,20 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from 'react-redux'
-import {profileThunk, statusThunk, statusUpdateThunk, addLike} from "../../redux/profileReducer";
+import {
+	profileThunk,
+	statusThunk,
+	statusUpdateThunk,
+	addLike,
+	savePhoto
+} from "../../redux/profileReducer";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../Hoc/withAuthRedirect";
 import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
-	componentDidMount() {
+
+	refreshProfile(){
 		let userId = this.props.match.params.userId;
 		if(!userId){
 			userId = this.props.authorizedUserId;
@@ -18,8 +25,18 @@ class ProfileContainer extends React.Component {
 		this.props.profileThunk(userId);
 		this.props.statusThunk(userId);
 	}
+	componentDidMount() {
+		this.refreshProfile();
+
+	}
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		if(prevProps.match.params.userId !== this.props.match.params.userId){
+			this.refreshProfile();
+		}
+	}
+
 	render() {
-		return <Profile {...this.props}/>
+		return <Profile {...this.props} isOwner={!this.props.match.params.userId}/>
 	}
 }
 
@@ -35,7 +52,7 @@ let mapStateToProps = (state) => {
 
 
 export default compose(
-	 connect(mapStateToProps, {profileThunk, statusThunk, statusUpdateThunk, addLike}),
+	 connect(mapStateToProps, {profileThunk, statusThunk, statusUpdateThunk, addLike, savePhoto}),
 	 withRouter,
 	 withAuthRedirect
 )(ProfileContainer);

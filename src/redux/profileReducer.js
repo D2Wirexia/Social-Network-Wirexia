@@ -6,6 +6,9 @@ const SET_USER_PROFILE = 'profileReducer/SET_USER_PROFILE';
 const SET_PROFILE_STATUS = 'profileReducer/SET_PROFILE_STATUS';
 const ADD_LIKE = 'profileReducer/ADD_LIKE';
 const PUSH_ID_LIKES = 'profileReducer/PUSH_ID_LIKES';
+const SET_PHOTO = 'profileReducer/SET_PHOTO';
+
+
 let initialState = {
 	postData: [
 		{id: 4, message: 'DA DA DA', like: 3115},
@@ -14,14 +17,7 @@ let initialState = {
 		{id: 1, message: 'It\'s first post', like: 21600875346},
 	],
 	profile: null,
-	mainProfile: {
-		userId: 0,
-		fullName: 'Dmitry Wirexia',
-		aboutMe: 'novice developer',
-		photos: {
-			large: 'https://download-cs.net/steam/avatars/3412.jpg'
-		}
-	},
+
 	status: "",
 	isShowIdLike: [],
 };
@@ -68,6 +64,11 @@ const profileReducer = (state = initialState, action) => {
 					 ? [...state.isShowIdLike, action.id]
 					 : state.isShowIdLike.filter(id => id !== action.id)
 			};
+		case SET_PHOTO:
+			return {
+				...state,
+				profile: {...state.profile, photos: action.photo}
+			};
 		default:
 			return state;
 	}
@@ -78,6 +79,8 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setProfileStatus = (status) => ({type: SET_PROFILE_STATUS, status});
 export const addLike = (id) => ({type: ADD_LIKE, id});
 export const pushIdLikes = (expectation, id) => ({type: PUSH_ID_LIKES, expectation, id});
+export const setPhotoSuccess = (photo) => ({type: SET_PHOTO, photo});
+
 
 export const profileThunk = (userId) => async (dispatch) => {
 	let response = await dalAPi.getProfile(userId);
@@ -91,6 +94,12 @@ export const statusUpdateThunk = (status) => async (dispatch) => {
 	let response = await dalAPi.putUpdateStatus(status);
 	if (response.data.resultCode === 0) {
 		dispatch(setProfileStatus(status));
+	}
+};
+export const savePhoto = (file) => async (dispatch) => {
+	let response = await dalAPi.putDownloadPhoto(file);
+	if (response.data.resultCode === 0) {
+		dispatch(setPhotoSuccess(response.data.data.photos));
 	}
 };
 export default profileReducer;

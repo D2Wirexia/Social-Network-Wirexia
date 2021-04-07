@@ -1,0 +1,132 @@
+.headerSettingsProfile{
+	display: flex;
+	width: 100%;
+	position: relative;
+}
+.photoLarge{
+	width: 200px;
+	height: 200px;
+}
+.photoLarge img{
+	width: 100%;
+	height: 100%;
+	border: 2px solid #ffe007;
+	box-shadow: -2px -2px 3px #ffe007, 2px 2px 3px #ffe007;
+}
+.aboutMe{
+	width: 500px;
+	margin-left: 20px;
+}
+.aboutMe span{
+	margin-left: 10px;
+	position: relative;
+}
+.aboutMe textarea{
+	width: 650px;
+	margin-top: 5px;
+	height: 150px;
+	font-size: 16px;
+	padding: 10px;
+}
+.aboutMe input:focus{
+	border: none;
+}
+.headerSettingsProfile .aboutMe{
+	font-size: 20px;
+	font-weight: 400;
+	position: relative;
+}
+
+.socialNetwork{
+	display: flex;
+	width: 920px;
+	flex-wrap: wrap;
+	position: relative;
+	justify-content: space-between;
+}
+.socialNetwork div{
+	width: 230px;
+	margin-top: 10px;
+	display: flex;
+}
+.socialNetwork div {
+
+
+}
+.socialNetwork .blockI i{
+	font-size: 20px;
+	margin: 100% 5px 0 5px;
+	width: 20px;
+	position: relative;
+}
+.socialNetwork div input{
+	width: 180px;
+}
+.titleSocialNetwork{
+	font-size: 22px;
+	text-align: center;
+	top: 20px;
+	position: relative;
+	font-weight: 500;
+	font-family: Helvetica;
+}
+.titleJob{
+	position: relative;
+	margin-bottom: 70px;
+	margin-top: 20px;
+	text-align: center;
+}
+.titleJob span{
+	font-family: Helvetica;
+	font-size: 22px;
+	position: relative;
+	font-weight: 500;
+	text-align: center;
+}
+.titleJob .checkedJob{
+	display: flex;
+}
+.titleJob .descriptionJob{
+	text-align: start;
+	margin-top: 10px;
+
+}
+.titleJob .descriptionJob textarea{
+	width: 900px;
+	height: 45px;
+	margin-top: 5px;
+}
+
+.btnUpdateProfile{
+	position: absolute;
+	margin-top: -50px;
+	left: 50%;
+	transform: translate(-50%);
+}
+.btnUpdateProfile button{
+	width: 200px;
+	border-radius: 50px;
+	border: 2px solid #4469ff;
+	height: 30px;
+	cursor: pointer;
+	background: rgb(132,54,210);
+	background: linear-gradient(142deg, rgba(132,54,210,1) 0%, rgba(107,87,236,1) 35%, rgba(88,80,245,1) 60%, rgba(130,67,218,1) 100%);
+	color: #fff;
+	font-size: 20px;
+	font-family: SimSun;
+	box-shadow: -2px 2px 5px #000, 2px 2px 5px #000;
+	transition: all .3s linear;
+}
+.btnUpdateProfile button:hover{
+	color: #000;
+	font-weight: 700;
+	background: rgb(136,210,54);
+	background: linear-gradient(142deg, rgba(136,210,54,1) 0%, rgba(135,236,87,1) 35%, rgba(80,245,188,1) 60%, rgba(75,218,67,1) 100%);
+}
+form .error{
+	color: red;
+	position: relative;
+	font-size:18px;
+	text-align: center;
+	bottom: 60px;
+}

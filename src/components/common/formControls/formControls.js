@@ -23,5 +23,10 @@ export const Input = props => {
 };
 
 export const createField = (placeholder, component, name, validate, props = {}, text="") => (
-	 <div><Field placeholder={placeholder} component={component} name={name}
-					 validate={validate} {...props}/>{text}</div> );
+	 <div className={universal.createField}>
+		 <div className={universal.fieldBlock}>
+		 	<Field placeholder={placeholder} component={component} name={name}
+					 validate={validate} {...props}/>
+		 </div>
+		 <div className={universal.fieldText}>{text}</div>
+	 </div> );

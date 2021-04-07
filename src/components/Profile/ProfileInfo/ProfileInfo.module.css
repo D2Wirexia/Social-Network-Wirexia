@@ -6,7 +6,6 @@
 .backLogo img{
 	width: 100%;
 	height: 100%;
-	background-size: cover;
 	transition: .2s linear;
 }
 
@@ -18,7 +17,11 @@
 	margin-top: 8px;
 	display: flex;
 }
-.profile img{
+.ava{
+	position: relative;
+	width: 200px;
+}
+.ava img{
 	width: 200px;
 	height: 200px;
 }
@@ -41,4 +44,29 @@
 }
 .leftBlock ul li img{
 	vertical-align: top;
+}
+.downloadPhoto{
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+}
+.downloadPhoto i{
+	font-size: 24px;
+	cursor: pointer;
+	color: #1f1f1f;
+	background: rgba(255, 255, 255, 0.31);
+	padding: 5px;
+}
+.downloadPhoto input{
+	width: 24px;
+	height: 24px;
+	opacity: 0;
+	cursor: pointer;
+	margin-top: 3px;
+	position: absolute;
+	color: transparent;
+	font-size: 0;
 }

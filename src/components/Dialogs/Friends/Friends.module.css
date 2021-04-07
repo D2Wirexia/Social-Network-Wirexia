@@ -1,43 +1,44 @@
 .dialog{
 	padding: 10px 10px 10px 10px;
-	border-bottom: 1px solid #b8b8b8;
+	box-shadow: 1px 1px 1px black, -1px -1px 1px black;
 	margin: 10px 0px;
 	cursor: pointer;
-	transition: .1s linear;
+	transition: .2s linear;
 	position: relative;
 	width: 180px;
 	height: 50px;
+	display: flex;
+	align-items: center;
+	font-family: Roboto;
+	transform: scale(1);
+	background: rgb(75,65,227);
+	background: linear-gradient(180deg, rgba(75,65,227,.2) 0%, rgba(65,60,209,.2) 35%, rgba(51,42,177,.2) 60%, rgba(58,57,138,.2) 100%);
+
 }
 .friendsDialog a{
 	text-decoration: none;
 	color: #000;
-	float: left;
-	padding-left: 10px;
+
+
+}
+.friendsDialog a.active .dialog{
+	background: rgb(75,65,227);
+	background: linear-gradient(180deg, rgba(75,65,227,1) 0%, rgba(65,60,209,1) 35%, rgba(51,42,177,1) 60%, rgba(58,57,138,1) 100%);
+	color: #fff;
+	text-shadow: 1px 1px 3px white;
 }
 .nameFriend{
 	position: relative;
 	left: 10px;
-	top: 50%;
-	transform: translate(0, -50%);
+
+}
+.friendsDialog a:hover .dialog{
+	transform: scale(1.1);
 }
 
-.dialog:hover{
-	color: #c94d35;
-	transform: scale(1.2);
-	box-shadow: .5px .5px #000;
-	background: #fbfbfb;
-}
-
-.friendsDialog a:hover{
-	color: #c94d35;
-}
 .imgFriend img{
 	width: 50px;
 	height: 50px;
-	float: left;
-}
-.dialog:hover img{
-
 }
 .mainDialog{
 

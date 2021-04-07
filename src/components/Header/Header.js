@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from "../../logo.svg";
+import logoWhite from "../../img/logoWhite.png";
+import logoDark from "../../img/logoBlack.png";
 import universal from './Header.module.css'
 import {NavLink} from "react-router-dom";
 
 const Header = React.memo(props => {
 	return(
-		 <div className={universal.header}>
-			 <img src={logo} className={universal.App_logo} alt="logo" />
+		 <div className={props.darkMode ? universal.headerDark : universal.header}>
+			 <img src={props.darkMode ? logoWhite : logoDark} className={universal.App_logo} alt="logo" />
 			 <div className={universal.RT}>This site is made on React</div>
 			 <div className={universal.login}>
 				 {

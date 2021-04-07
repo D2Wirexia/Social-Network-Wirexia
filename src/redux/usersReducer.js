@@ -122,8 +122,8 @@ export const requestUsers = (currentPage, pageSize) => async (dispatch) => {
 	dispatch(toggleIsFetchingAC(true));
 	dispatch(setCurrentPage(currentPage));
 	let data = await dalAPi.getUsersAxios(currentPage, pageSize);
-	dispatch(toggleIsFetchingAC(false));
 	dispatch(setUsersAC(data.items));
+	dispatch(toggleIsFetchingAC(false));
 	dispatch(setTotalUsersCountAC(data.totalCount));
 };
 const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {

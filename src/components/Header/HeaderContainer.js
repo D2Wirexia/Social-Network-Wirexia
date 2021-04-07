@@ -14,6 +14,7 @@ let mapStateToProps = (state) => {
 	return {
 		isAuth: state.authPart.isAuth,
 		login: state.authPart.login,
+		darkMode: state.settingPage.darkMode
 	}
 };
 

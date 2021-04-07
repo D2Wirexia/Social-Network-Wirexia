@@ -38,6 +38,7 @@ button.send:hover{
 	height: calc(100vh - 210px);
 	overflow: auto;
 }
+.sms::-webkit-scrollbar { width: 0; }
 .dataEntry form{
 	display: flex;
 	margin: 20px 0 25px;
