@@ -16,7 +16,6 @@ let mapStateToProps = (state) => {
 		messageData: state.messangerPage.messageData,
 		dialogData: state.messangerPage.dialogData,
 		ZeChat: state.messangerPage.ZeChat,
-
 	}
 };
 

@@ -83,7 +83,7 @@ console.log(funcImitationCountLikes(10562711)); //10,6 М
 const polidrom = word => {
 	word = word.toLowerCase();
 	for (let i = 0; i < Math.floor(word.length/2); i++) {
-		if(word[i] !== word[word.length -1 - i]){
+		if(word[i] !== word[word.length - 1 - i]){
 			return false
 		}
 	}
@@ -99,3 +99,4 @@ const testert = "Invalid url format (Contacts->Website)";
 const newtqet = testert.split("(")[0] + testert.split("(")[1].split("->")[1].split(")")[0];
 
 console.log(newtqet)
+

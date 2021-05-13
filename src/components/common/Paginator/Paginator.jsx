@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import universal from './Pagination.module.css'
 import './../../../css/all.min.css'
+import Preloader from "../Preloader/Preloader";
 
 let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged}) => {
 	const portionSize = 10;
@@ -20,6 +21,7 @@ let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged}) => {
 		color: "#b1b1b1",
 		opacity: 0.3
 	};
+	if(pageCount === 0) return <Preloader/>;
 	return (
 		 <div className={universal.pagination}>
 			 <button disabled={portionNumber <= 1} style={portionNumber <= 1 ? disabledBtn : null}

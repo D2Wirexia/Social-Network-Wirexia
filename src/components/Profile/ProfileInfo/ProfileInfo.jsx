@@ -1,15 +1,12 @@
 import React from "react";
 import universal from "./ProfileInfo.module.css";
-import Preloader from "../../common/Preloader/Preloader";
 import headerImg from './../../../img/snw.png';
 import ProfileStatusWithHooks from "./PrifileStatus/ProfileStatusWithHooks";
 import './../../../css/all.min.css';
 
 let ProfileInfo = React.memo(
 	 ({profile, status, statusUpdateThunk, isOwner, savePhoto}) => {
-	if (!profile){
-		return <Preloader/>
-	}
+
 
 	const onMainPhotoSelected = event => {
 		if(event.target.files.length){

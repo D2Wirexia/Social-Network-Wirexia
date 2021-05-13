@@ -12,7 +12,7 @@ const minLength2 = minLengthCreator(6);
 
 const Login = React.memo(props => {
 	const onSubmit = (formData) => {
-		props.loginThunk(formData.email, formData.password, formData.rememberMe)
+		props.loginThunk(formData.email, formData.password, formData.rememberMe, formData.captcha)
 	};
 	if (props.isAuth) return <Redirect to={'/profile'}/>;
 	const url = "https://images.pexels.com/photos/2425664/pexels-photo-2425664.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
@@ -22,11 +22,11 @@ const Login = React.memo(props => {
 			 <div className={universal.backgroundLogin}>
 				 <img src={url} alt="backgroundLogin"/>
 			 </div>
-			 <LoginReduxForm onSubmit={onSubmit}/>
+			 <LoginReduxForm onSubmit={onSubmit} captchaIUrl={props.captchaIUrl}/>
 		 </div>
 	)
 });
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaIUrl}) => {
 	return (
 		 <form onSubmit={handleSubmit}>
 			 <h1>Login</h1>
@@ -42,6 +42,12 @@ const LoginForm = ({handleSubmit, error}) => {
 					 {createField(null, Input, "rememberMe", [], {type: "checkbox"}, "remember me")}
 				 </div>
 			 </div>
+			 {captchaIUrl && <div>
+				 <img src={captchaIUrl} alt="captcha"/>
+			 </div>}
+			 {captchaIUrl && <div>
+				 {createField("Anti-bot symbols", Input, "captcha", [required])}
+			 </div>}
 			 <div>
 				 <button className={universal.btn}>Login</button>
 			 </div>
@@ -52,6 +58,7 @@ const LoginReduxForm = reduxForm({form: 'login'})(LoginForm);
 let mapStateToProps = (state) => {
 	return {
 		isAuth: state.authPart.isAuth,
+		captchaIUrl: state.authPart.captchaIUrl
 	}
 };
 export default connect(mapStateToProps, {loginThunk})(Login);

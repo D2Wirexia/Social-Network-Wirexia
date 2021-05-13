@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, withRouter} from "react-router-dom";
 import Music from "./components/Music/Music"
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {connect} from 'react-redux'
@@ -22,7 +22,6 @@ const NewsContainer = React.lazy(() => import("./components/News/NewsContainer")
 class App extends React.PureComponent {
 	componentDidMount() {
 		this.props.initializeApp();
-
 	}
 	render() {
 		if (!this.props.initialized) return <Preloader/>;
@@ -31,6 +30,7 @@ class App extends React.PureComponent {
 				 <HeaderContainer/>
 				 <NavContainer/>
 				 <div className="app_content">
+					 <Route exact path="/" render={() => <Redirect to="/profile"/>}/>
 					 <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
 					 <Route path="/dialogs/:userId?" render={withSuspense(DialogsContainer)}/>
 					 <Route path="/news" render={withSuspense(NewsContainer)}/>
@@ -47,7 +47,6 @@ class App extends React.PureComponent {
 let mapStateToProps = (state) => {
 	return {
 		initialized: state.appPage.initialized,
-
 	}
 };
 let AppContainer = compose(
@@ -58,7 +57,7 @@ const MainApp = () => {
 	return(
 		 <BrowserRouter>
 			 <Provider store={store}>
-				 <AppContainer state={store.getState()}/>
+				 <AppContainer/>
 			 </Provider>
 		 </BrowserRouter>
 	);

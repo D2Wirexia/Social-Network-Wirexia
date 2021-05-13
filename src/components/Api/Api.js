@@ -38,8 +38,8 @@ export const dalAPi = {
 		return instance.put(`profile/status`, {status})
 	},
 	//залогиниться на серваке через нашу страничку
-	postLoginAxios(email, password, rememberMe  = false){
-		return instance.post('/auth/login', {email, password, rememberMe})
+	postLoginAxios(email, password, rememberMe  = false, captcha = null){
+		return instance.post('/auth/login', {email, password, rememberMe, captcha})
 	},
 	//разлогиниться на серваке через нашу страничку
 	deleteLoginAxios(){
@@ -55,8 +55,12 @@ export const dalAPi = {
 			}
 		});
 	},
-	//
+	//получить обновленный профайл
 	putUpdateProfile(profile){
 		return instance.put('profile', profile)
+	},
+	//получить капчу
+	getCaptcha(){
+		return instance.get('security/get-captcha-url')
 	}
 };
