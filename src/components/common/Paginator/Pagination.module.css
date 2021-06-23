@@ -39,3 +39,9 @@ span.selectedPage{
 	background: #5288ff;
 	color: #fff;
 }
+.disabledBtn{
+	background: #243d74;
+	cursor: auto;
+	color: #b1b1b1;
+	opacity: 0.3;
+}
